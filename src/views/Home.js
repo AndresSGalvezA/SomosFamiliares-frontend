@@ -62,7 +62,8 @@ export default function Home() {
           <div className="container">
             <div className="slide-captions text-start text-light">
               <h2 className="text-uppercase text-lg">¿Somos familiares?</h2>
-              <p className="text-small">Sitio en construcción...</p>
+              <p className="text-small">Con solo dos imágenes, esta aplicación analiza el parentesco entre dos personas, brindando el procentaje
+              de similitud y la posible relación entre ellas. ¡Descúbrelo ahora!</p>
               <div>
                 <div>
                   <a href="/prueba" className="btn scroll-to">
@@ -82,7 +83,7 @@ export default function Home() {
                 <div className="widget">
                   <div className="widget-title">¿Somos familiares?</div>
                   <p className="mb-5">
-                    Hecho desde Guatemala, Guatemala.
+                    Guatemala, Guatemala.
                     <br /> Todos los derechos reservados.
                     <br /> Derechos de autor © 2021. La Casa.
                   </p>

@@ -1,7 +1,7 @@
 import React from "react";
 import routes from "./routes/routes";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
@@ -17,7 +17,11 @@ function App() {
 
 function RouteWithSubRoutes(route) {
   return (
-    <Route path={route.path} exact={route.exact} render={props => <route.component routes={route.routes} {...props} />} />
+    <Route
+      path={route.path}
+      exact={route.exact}
+      render={(props) => <route.component routes={route.routes} {...props} />}
+    />
   );
 }
 

@@ -1,15 +1,3 @@
-/*
-
-Polo - Multipurpose HTML5 Template
-Version: 5.9.9
-Website: https://inspirothemes.com/themes/polo
-License: https://inspirothemes.com/themes/polo/license.html
-Inspiro Themes (https://inspirothemes.com)
-Author: INSPIRO - Ardian Berisha
-Copyright 2021
-
-*/
-
 //INSPIRO Global var
 var INSPIRO = {},
   $ = jQuery.noConflict();

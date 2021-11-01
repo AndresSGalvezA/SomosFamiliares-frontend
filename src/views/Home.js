@@ -1,14 +1,12 @@
-import React from "react";
+/* eslint-disable */
+import React, { Suspense } from "react";
+import Model from "../Threejs/Aframe";
+import { Canvas } from "@react-three/fiber";
+import "./styles.css";
 import "../css/plugins.css";
 import "../css/style.css";
-import Model from "../Threejs/Aframe";
-import "./styles.css";
-import { Canvas } from "@react-three/fiber";
-import { Environment, OrbitControls } from "@react-three/drei";
-import { Suspense } from "react";
+
 export default function Home() {
-  var c = <Environment />;
-  console.log(c);
   return (
     <div className="body-inner">
       <header
@@ -45,11 +43,7 @@ export default function Home() {
         </div>
       </header>
       <div id="slider" className="inspiro-slider slider-fullscreen">
-        <div
-          className="slide"
-          data-bg-video="https://youtu.be/5-IRImDXjjc"
-          id="cont"
-        >
+        <div className="slide" id="cont">
           <div className="App" id="three">
             <Canvas>
               <pointLight position={[10, 10, 10]} />
@@ -62,13 +56,11 @@ export default function Home() {
           <div className="container">
             <div className="slide-captions text-start text-light">
               <h2 className="text-uppercase text-lg">¿Somos familiares?</h2>
-              <p className="text-small">Con solo dos imágenes, esta aplicación analiza el parentesco entre dos personas, brindando el procentaje
+              <p className="text-small">Con solo dos imágenes, esta aplicación analiza el parentesco entre dos personas, brindando el porcentaje
               de similitud y la posible relación entre ellas. ¡Descúbrelo ahora!</p>
               <div>
                 <div>
-                  <a href="/prueba" className="btn scroll-to">
-                    Hacer la prueba
-                  </a>
+                  <a href="/prueba" className="btn scroll-to">Hacer la prueba</a>
                 </div>
               </div>
             </div>

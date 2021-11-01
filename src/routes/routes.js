@@ -1,6 +1,4 @@
-import LayoutHome from "../layouts/LayoutHome";
-import LayoutTest from "../layouts/LayoutTest";
-import LayoutAbout from "../layouts/LayoutAbout";
+import Layout from "../layouts/Layout";
 import Home from "../views/Home";
 import Test from "../views/Test";
 import About from "../views/About";
@@ -9,7 +7,7 @@ import NotFound from "../views/NotFound";
 const routes = [
     {
         path: "/prueba",
-        component: LayoutTest,
+        component: Layout,
         exact: false,
         routes: [
             {
@@ -24,7 +22,7 @@ const routes = [
     },
     {
         path: "/nosotros",
-        component: LayoutAbout,
+        component: Layout,
         exact: false,
         routes: [
             {
@@ -39,7 +37,7 @@ const routes = [
     },
     {
         path: "/",
-        component: LayoutHome,
+        component: Layout,
         exact: false,
         routes: [
             {

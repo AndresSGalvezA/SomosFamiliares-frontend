@@ -1,11 +1,9 @@
 import React from "react";
 import { Route, Switch } from 'react-router-dom';
-//import { Layout } from "antd";
-//import './LayoutBasic.scss';
 
-export default function LayoutAbout(props) {
+export default function Layout(props) {
     const { routes } = props;
-    //const { Content, Footer } = Layout;
+    
     return (
         <>
             <LoadRoutes routes={routes} />

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from "react";
 import "../css/plugins.css";
 import "../css/style.css";
@@ -10,8 +11,8 @@ export default function NotFound() {
                     <div className="container">
                         <div id="logo">
                             <a href="index.html">
-                                <span class="logo-default">La Casa</span>
-                                <span class="logo-dark">La Casa</span>
+                                <span className="logo-default">La Casa</span>
+                                <span className="logo-dark">La Casa</span>
                             </a>
                         </div>
                         <div id="mainMenu-trigger">
@@ -94,7 +95,7 @@ export default function NotFound() {
                         </div>
                     </div>
                 </div>
-                <div class="copyright-content">
+                <div className="copyright-content">
                     <div className="container">
                         <div className="copyright-text text-center">&copy; 2021 La Casa. Todos los derechos reservados.</div>
                     </div>

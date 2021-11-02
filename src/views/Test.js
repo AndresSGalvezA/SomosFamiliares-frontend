@@ -1,5 +1,7 @@
 /* eslint-disable */
 import React from "react";
+import "../css/plugins.css";
+import "../css/style.css";
 
 export default function Test() {
     return (
@@ -43,7 +45,7 @@ export default function Test() {
                     <div className="post-item border">
                         <div className="post-item-wrap">
                             <div className="post-image">
-                                <img alt="" src="https://i.pinimg.com/originals/ea/79/71/ea797112a7122533d4ae1d81e90af6c8.jpg" />
+                                <img alt="" src={require("../assets/img/12.jpg").default} />
                                 <span className="post-meta-category"><a href="/">Imagen 1</a></span>
                             </div>
                             <div className="post-item-description"> 

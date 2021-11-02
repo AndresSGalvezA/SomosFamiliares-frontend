@@ -59,15 +59,6 @@ export default function Test() {
                     <div id="mainMenu-trigger">
                         <a className="lines-button x"><span className="lines"></span></a>
                     </div>
-                    <div id="mainMenu">
-                        <div className="container">
-                            <nav>
-                                <ul>
-                                    
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
                 </div>
             </div>
         </header>

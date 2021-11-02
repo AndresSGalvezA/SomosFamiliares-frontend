@@ -28,17 +28,6 @@ export default function Home() {
                 <span className="lines"></span>
               </a>
             </div>
-            <div id="mainMenu">
-              <div className="container">
-                <nav>
-                  <ul>
-                    <li className="dropdown">
-                      <a href="/nosotros">Sobre nosotros</a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
           </div>
         </div>
       </header>

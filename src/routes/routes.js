@@ -1,7 +1,6 @@
 import Layout from "../layouts/Layout";
 import Home from "../views/Home";
 import Test from "../views/Test";
-import About from "../views/About";
 import NotFound from "../views/NotFound";
 
 const routes = [
@@ -13,21 +12,6 @@ const routes = [
             {
                 path: "/prueba",
                 component: Test,
-                exact: true
-            },
-            {
-                component: NotFound
-            }
-        ]
-    },
-    {
-        path: "/nosotros",
-        component: Layout,
-        exact: false,
-        routes: [
-            {
-                path: "/nosotros",
-                component: About,
                 exact: true
             },
             {

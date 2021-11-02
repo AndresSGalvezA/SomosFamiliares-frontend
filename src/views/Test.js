@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React, { useState } from "react";
-import { test, postImage } from "../api/session";
+import { postImage, getFaceId, getAnalysis, sendEmail } from "../api/session";
 import "../css/plugins.css";
 import "../css/style.css";
 import "../css/file-input.css";
@@ -9,22 +9,55 @@ var data = new FormData();
 var img1, img2;
 
 const uploadImage = async e => {
-    const result1 = await postImage(img1);
+    // Aquí debería iniciar el loader...
 
-    if (result1.statusCode === 200) {
-        localStorage.setItem("img1", result.body);
+    // Llamado a API Gateway
+    const api_gateway1 = await postImage(img1);
+
+    if (api_gateway1.statusCode === 200) {
+        localStorage.setItem("img1", api_gateway1.body);
     } else {
-
+        // Terminar loader y mostrar error
+        console.log("Error al subir la imagen 1");
     }
 
-    //localStorage.getItem("img1");
-    const result2 = await postImage(img2);
+    const api_gateway2 = await postImage(img2);
 
-    if (result2.statusCode === 200) {
-        localStorage.setItem("img2", result.body);
+    if (api_gateway2.statusCode === 200) {
+        localStorage.setItem("img2", api_gateway2.body);
+    } else {
+        // Terminar loader y mostrar error
+        console.log("Error al subir la imagen 2");
     }
 
-    //localStorage.getItem("img1");
+    // Llamado a API Cognitive services para obtener el FaceId
+    const face_id1 = await getFaceId(localStorage.getItem("img1").toString());
+    console.log(face_id1);
+
+    if (face_id1.msg === "OK") {
+        localStorage.setItem("faceid1", face_id1.faceId);
+    } else {
+        // Terminar loader y mostrar error
+        console.log("Error al obtener el face_id 1");
+    }
+
+    const face_id2 = await getFaceId({ "img": localStorage.getItem("img2") });
+
+    if (face_id2.msg === "OK") {
+        localStorage.setItem("faceid1", face_id2.faceId);
+    } else {
+        // Terminar loader y mostrar error
+        console.log("Error al obtener el face_id 2");
+    }
+
+    // Llamado a API Cognitive services para obtener el análisis
+    let face_ids = { 
+        "faceId1": localStorage.getItem("faceid1"), 
+        "faceId2": localStorage.getItem("faceid2")
+    };
+    const analysis = await getAnalysis(face_ids);
+    console.log(analysis);
+
 }
 
 export default function Test() {

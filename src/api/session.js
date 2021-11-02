@@ -25,12 +25,12 @@ export function postImage(data) {
 }
 
 export function getFaceId(data) {
+    console.log("data de getFaceId: ", data);
     const url = `${BASE_PATH}/analisis/faceid`;
     const params = {
         method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
+        body: {
+            img: data
         }
     }
 
@@ -39,31 +39,25 @@ export function getFaceId(data) {
         return response.json();
     })
     .then(result => {
-        if (result.error) {
-            return 200;
-        } else {
-            return {
-                status: 500,
-                message: "Error al cargar la imagen."
-            }
-        }
+        return result;
     })
     .catch(error => {
         return {
             status: 500,
-            message: "Error al cargar la imagen."
+            message: "Error al obtener los ID de imágenes."
         }
     });
 }
 
 export function getAnalysis(data) {
+    console.log("data: ", data);
     const url = `${BASE_PATH}/analisis/verify`;
     const params = {
         method: "POST",
         body: JSON.stringify(data),
-        headers: {
+        /*headers: {
             "Content-Type": "application/json"
-        }
+        }*/
     }
 
     return fetch(url, params)
@@ -71,19 +65,12 @@ export function getAnalysis(data) {
         return response.json();
     })
     .then(result => {
-        if (result.error) {
-            return 200;
-        } else {
-            return {
-                status: 500,
-                message: "Error al cargar la imagen."
-            }
-        }
+        return result;
     })
     .catch(error => {
         return {
             status: 500,
-            message: "Error al cargar la imagen."
+            message: "Error al obtener el análisis."
         }
     });
 }
@@ -92,10 +79,7 @@ export function sendEmail(data) {
     const url = `${BASE_PATH}/msg`;
     const params = {
         method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
+        body: JSON.stringify(data)
     }
 
     return fetch(url, params)

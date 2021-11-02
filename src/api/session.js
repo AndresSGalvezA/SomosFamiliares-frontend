@@ -25,12 +25,14 @@ export function postImage(data) {
 }
 
 export function getFaceId(data) {
-    console.log("data de getFaceId: ", data);
     const url = `${BASE_PATH}/analisis/faceid`;
     const params = {
         method: "POST",
         body: {
             img: data
+        },
+        headers: {
+            "Content-Type": "application/json"
         }
     }
 
@@ -55,9 +57,9 @@ export function getAnalysis(data) {
     const params = {
         method: "POST",
         body: JSON.stringify(data),
-        /*headers: {
+        headers: {
             "Content-Type": "application/json"
-        }*/
+        }
     }
 
     return fetch(url, params)

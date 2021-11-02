@@ -32,7 +32,7 @@ const uploadImage = async e => {
 
     // Llamado a API Cognitive services para obtener el FaceId
     const face_id1 = await getFaceId(localStorage.getItem("img1").toString());
-    console.log(face_id1);
+    console.log("Result face_id1: ", face_id1);
 
     if (face_id1.msg === "OK") {
         localStorage.setItem("faceid1", face_id1.faceId);
@@ -41,10 +41,10 @@ const uploadImage = async e => {
         console.log("Error al obtener el face_id 1");
     }
 
-    const face_id2 = await getFaceId({ "img": localStorage.getItem("img2") });
+    const face_id2 = await getFaceId(localStorage.getItem("img2").toString());
 
     if (face_id2.msg === "OK") {
-        localStorage.setItem("faceid1", face_id2.faceId);
+        localStorage.setItem("faceid2", face_id2.faceId);
     } else {
         // Terminar loader y mostrar error
         console.log("Error al obtener el face_id 2");

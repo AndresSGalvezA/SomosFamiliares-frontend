@@ -33,7 +33,7 @@ const uploadImage = async e => {
     // Llamado a API Cognitive services para obtener el FaceId
     const face_id1 = await getFaceId(localStorage.getItem("img1").toString());
     console.log("Result face_id1: ", face_id1);
-
+    
     if (face_id1.msg === "OK") {
         localStorage.setItem("faceid1", face_id1.faceId);
     } else {

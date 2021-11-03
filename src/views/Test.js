@@ -76,17 +76,18 @@ export default function Test() {
     }
 
     // Llamado a API Cognitive services para obtener el análisis
-    let face_ids = {
-      faceId1: localStorage.getItem("faceid1"),
-      faceId2: localStorage.getItem("faceid2"),
+    let face_ids = { 
+        faceId1: localStorage.getItem("faceid1"), 
+        faceId2: localStorage.getItem("faceid2")
     };
 
     const analysis = await getAnalysis(face_ids);
-    setSignUp(false);
     localStorage.setItem("porcentaje", analysis.porcentaje);
     localStorage.setItem("parentesco", analysis.parentesco);
     window.location.href = "/resultado";
-  };
+}
+
+
 
   return (
     <div className="body-inner">

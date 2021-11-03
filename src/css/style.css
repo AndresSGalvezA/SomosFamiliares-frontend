@@ -30,6 +30,36 @@ section .page-content {
   left: 0;
   z-index: 0;
 }
+#three2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+#three2.fade-enter-active {
+  opacity: 1;
+  z-index: 200;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 500ms ease-out;
+  transition-delay: 500ms;
+}
+#three2.fade-enter-inactive {
+  opacity: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity 1000ms ease-out;
+  transition-delay: 1000ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: z-index 1000ms ease-out;
+  transition-delay: 1000ms;
+}
+
 .rounded-circle {
   min-width: 1rem;
   min-height: 1rem;

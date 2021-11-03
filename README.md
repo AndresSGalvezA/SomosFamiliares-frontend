@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+# ¿Somos familiares?
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto consta del frontend de la aplicación ¿Somos familiares?, empleada en el proyecto del curso Administración de Proyectos de Sistemas. ¿Somos familiares? es una aplicación que calcula la probabilidad de que dos personas sean familiar, además de calcular el posible paretesco de ellas. Recibe dos imágenes de rostros y las almacena en un bucket de AWS S3, luego envía la dirección de estas imágenes a Azure Cognitive Services para obtener un Face ID y emplearlo finalmente para obtener el porcentaje de igualdad y el posible parentesco entre las personas de las imágenes enviadas.
 
-## Available Scripts
+## Requisitos para levantar el proyecto localmente
 
-In the project directory, you can run:
+Tener instalado Node.js +14.18.1.
 
-### `npm start`
+## Levantar el proyecto localmente
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+>Instalar dependencias
+```
+npm install  
+```
+>Iniciar servidor
+```
+npm start  
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Esto inicia la aplicación en modo de desarrollo.\
+Se debe navegar hacia [http://localhost:3000](http://localhost:3000) para verla en el navegador.
 
-### `npm test`
+## Deployment
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Esta página corre en un entorno de [AWS Amplify](https://master.dajdzxaodznkg.amplifyapp.com/).

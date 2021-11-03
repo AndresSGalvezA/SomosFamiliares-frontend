@@ -28,9 +28,7 @@ export function getFaceId(data) {
     const url = `${BASE_PATH}/analisis/faceid`;
     const params = {
         method: "POST",
-        body: {
-            img: data
-        },
+        body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json"
         }

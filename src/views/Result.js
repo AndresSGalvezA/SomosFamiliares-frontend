@@ -29,12 +29,9 @@ const uploadImage = async e => {
         console.log("Error al subir la imagen 2");
     }
 
-    let face1Params = {
-        img: localStorage.getItem("img1")
-    }
-
     // Llamado a API Cognitive services para obtener el FaceId
-    const face_id1 = await getFaceId(face1Params);
+    const face_id1 = await getFaceId(localStorage.getItem("img1").toString());
+    console.log("Result face_id1: ", face_id1);
     
     if (face_id1.msg === "OK") {
         localStorage.setItem("faceid1", face_id1.faceId);
@@ -43,11 +40,7 @@ const uploadImage = async e => {
         console.log("Error al obtener el face_id 1");
     }
 
-    let face2Params = {
-        img: localStorage.getItem("img2")
-    }
-
-    const face_id2 = await getFaceId(face2Params);
+    const face_id2 = await getFaceId(localStorage.getItem("img2").toString());
 
     if (face_id2.msg === "OK") {
         localStorage.setItem("faceid2", face_id2.faceId);
@@ -58,14 +51,12 @@ const uploadImage = async e => {
 
     // Llamado a API Cognitive services para obtener el análisis
     let face_ids = { 
-        faceId1: localStorage.getItem("faceid1"), 
-        faceId2: localStorage.getItem("faceid2")
+        "faceId1": localStorage.getItem("faceid1"), 
+        "faceId2": localStorage.getItem("faceid2")
     };
-
     const analysis = await getAnalysis(face_ids);
-    localStorage.setItem("porcentaje", analysis.porcentaje);
-    localStorage.setItem("parentesco", analysis.parentesco);
-    window.location.href = "/resultado";
+    console.log(analysis);
+
 }
 
 export default function Test() {
@@ -110,7 +101,8 @@ export default function Test() {
                     <div className="breadcrumb float-left">
                         <ul>
                             <li><a href="/">Inicio</a> </li>
-                            <li className="active"><a href="/prueba">Prueba</a> </li>
+                            <li><a href="/prueba">Prueba</a> </li>
+                            <li className="active"><a href="/resultado">Resultado</a> </li>
                         </ul>
                     </div>
                 </div>
@@ -118,33 +110,22 @@ export default function Test() {
                     <div className="post-item border">
                         <div className="post-item-wrap">
                             <div className="post-image">
-                                <img alt="Preview" src={image1 ? image1 : require("../assets/img/placeholder.png").default} />
+                                <img alt="Preview" src={localStorage.getItem("img1")} />
                                 <span className="post-meta-category">Persona 1</span>
-                            </div>
-                            <div className="post-item-description">
-                                <label htmlFor="file-upload1" className="custom-file-upload">
-                                    Cargar imagen
-                                </label>
-                                <input id="file-upload1" type="file" accept=".jpeg" onChange={onImageChange1} />
                             </div>
                         </div>
                     </div>
                     <div className="post-item border">
                         <div className="post-item-wrap">
                             <div className="post-image">
-                                <img alt="Preview" src={image2 ? image2 : require("../assets/img/placeholder.png").default} />
+                                <img alt="Preview" src={localStorage.getItem("img2")} />
                                 <span className="post-meta-category">Persona 2</span>
-                            </div>
-                            <div className="post-item-description"> 
-                                <label htmlFor="file-upload2" className="custom-file-upload">
-                                    Cargar imagen
-                                </label>
-                                <input id="file-upload2" type="file" accept=".jpeg" onChange={onImageChange2} />
                             </div>
                         </div>
                     </div>
                 </div>
-                <button className="btn btn-primary" onClick={uploadImage}>Hacer la prueba</button>
+                Porcentaje: localStorage.getItem("porcentaje");
+                <button className="btn btn-primary" onClick={uploadImage}>Enviar resultados por correo</button>
             </div>
         </section>
         <footer id="footer">

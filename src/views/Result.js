@@ -1,82 +1,27 @@
 /* eslint-disable */
-import React, { useState } from "react";
-import { postImage, getFaceId, getAnalysis, sendEmail } from "../api/session";
+import React from "react";
+import { sendEmail } from "../api/session";
 import "../css/plugins.css";
 import "../css/style.css";
 import "../css/file-input.css";
 
 var img1, img2;
 
-const uploadImage = async e => {
-    // Aquí debería iniciar el loader...
-
-    // Llamado a API Gateway
-    const api_gateway1 = await postImage(img1);
-
-    if (api_gateway1.statusCode === 200) {
-        localStorage.setItem("img1", api_gateway1.body);
-    } else {
-        // Terminar loader y mostrar error
-        console.log("Error al subir la imagen 1");
+const sendMail = async e => {
+    let params = {
+        email: document.getElementById("email").value,
+        porcentaje: localStorage.getItem("porcentaje"),
+        parentesco: localStorage.getItem("parentesco"),
+        img1: localStorage.getItem("img1"),
+        img2: localStorage.getItem("img2")
     }
-
-    const api_gateway2 = await postImage(img2);
-
-    if (api_gateway2.statusCode === 200) {
-        localStorage.setItem("img2", api_gateway2.body);
-    } else {
-        // Terminar loader y mostrar error
-        console.log("Error al subir la imagen 2");
-    }
-
-    // Llamado a API Cognitive services para obtener el FaceId
-    const face_id1 = await getFaceId(localStorage.getItem("img1").toString());
-    console.log("Result face_id1: ", face_id1);
-    
-    if (face_id1.msg === "OK") {
-        localStorage.setItem("faceid1", face_id1.faceId);
-    } else {
-        // Terminar loader y mostrar error
-        console.log("Error al obtener el face_id 1");
-    }
-
-    const face_id2 = await getFaceId(localStorage.getItem("img2").toString());
-
-    if (face_id2.msg === "OK") {
-        localStorage.setItem("faceid2", face_id2.faceId);
-    } else {
-        // Terminar loader y mostrar error
-        console.log("Error al obtener el face_id 2");
-    }
-
-    // Llamado a API Cognitive services para obtener el análisis
-    let face_ids = { 
-        "faceId1": localStorage.getItem("faceid1"), 
-        "faceId2": localStorage.getItem("faceid2")
-    };
-    const analysis = await getAnalysis(face_ids);
-    console.log(analysis);
-
+    console.log(params);
+    const mail_response = await sendEmail(params);
+    console.log(mail_response);
+    alert("Correo electrónico enviado.");
 }
 
-export default function Test() {
-    const [image1, setImage1] = useState(null);
-    const [image2, setImage2] = useState(null);
-
-    const onImageChange1 = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            img1 = e.target.files[0];
-            setImage1(URL.createObjectURL(e.target.files[0]));
-        }
-    }
-
-    const onImageChange2 = (e) => {
-        if (e.target.files && e.target.files[0]) {
-            img2 = e.target.files[0];
-            setImage2(URL.createObjectURL(e.target.files[0]));
-        }
-    }
-
+export default function Result() {
     return (
         <div className="body-inner">
         <header id="header" data-fullwidth="true">
@@ -124,8 +69,12 @@ export default function Test() {
                         </div>
                     </div>
                 </div>
-                Porcentaje: localStorage.getItem("porcentaje");
-                <button className="btn btn-primary" onClick={uploadImage}>Enviar resultados por correo</button>
+                Porcentaje: {localStorage.getItem("porcentaje")} <br/>
+                Parentesco: {localStorage.getItem("parentesco")} <br/><br/>
+
+                
+                <input type="email" id="email" /> <br/><br/>
+                <button onClick={sendMail} className="submit btn btn-primary">Enviar resultados por correo</button>
             </div>
         </section>
         <footer id="footer">

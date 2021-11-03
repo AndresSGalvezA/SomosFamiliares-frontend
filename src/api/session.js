@@ -50,7 +50,6 @@ export function getFaceId(data) {
 }
 
 export function getAnalysis(data) {
-    console.log("data: ", data);
     const url = `${BASE_PATH}/analisis/verify`;
     const params = {
         method: "POST",
@@ -79,7 +78,10 @@ export function sendEmail(data) {
     const url = `${BASE_PATH}/msg`;
     const params = {
         method: "POST",
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
     }
 
     return fetch(url, params)
@@ -87,19 +89,12 @@ export function sendEmail(data) {
         return response.json();
     })
     .then(result => {
-        if (result.error) {
-            return 200;
-        } else {
-            return {
-                status: 500,
-                message: "Error al cargar la imagen."
-            }
-        }
+        return result;
     })
     .catch(error => {
         return {
             status: 500,
-            message: "Error al cargar la imagen."
+            message: "Error al enviar el correo."
         }
     });
 }

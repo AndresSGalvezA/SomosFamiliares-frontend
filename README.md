@@ -22,4 +22,4 @@ Se debe navegar hacia [http://localhost:3000](http://localhost:3000) para verla 
 
 ## Deployment
 
-Esta página corre en un entorno de [AWS Amplify](https://master.dajdzxaodznkg.amplifyapp.com/).
+Esta página corrió en un entorno de [AWS Amplify](https://master.dajdzxaodznkg.amplifyapp.com/).

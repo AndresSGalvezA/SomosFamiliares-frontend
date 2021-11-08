@@ -4,7 +4,7 @@ Este proyecto consta del frontend de la aplicación ¿Somos familiares?, emplead
 
 ## Requisitos para levantar el proyecto localmente
 
-Tener instalado Node.js +14.18.1.
+<img src="https://img.shields.io/badge/%2B14.18.1-Node.js-green" /> <img src="https://img.shields.io/badge/%2B17.0.2-React.js-33caff" /> <img src="https://img.shields.io/badge/%2Br134-Three.js-black" />
 
 ## Levantar el proyecto localmente
 
